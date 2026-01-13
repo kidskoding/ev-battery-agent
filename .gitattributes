@@ -1,2 +1,5 @@
 *.pdf linguist-detectable=false
-docs/* linguist-documentation
+*.pdf linguist-vendored
+*.html linguist-detectable=false
+*.html linguist-vendored
+*.java linguist-detectable
