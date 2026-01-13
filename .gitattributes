@@ -1,0 +1,2 @@
+*.pdf linguist-detectable=false
+docs/* linguist-documentation
