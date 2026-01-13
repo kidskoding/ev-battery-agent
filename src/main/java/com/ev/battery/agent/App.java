@@ -7,6 +7,8 @@ import dev.langchain4j.data.document.DocumentSplitter;
 import dev.langchain4j.data.document.loader.FileSystemDocumentLoader;
 import dev.langchain4j.data.document.splitter.DocumentSplitters;
 import dev.langchain4j.data.segment.TextSegment;
+import dev.langchain4j.memory.ChatMemory;
+import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.vertexai.VertexAiEmbeddingModel;
 import dev.langchain4j.model.vertexai.VertexAiGeminiChatModel;
@@ -51,9 +53,12 @@ public class App  {
             .maxResults(5)
             .build();
 
+        ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(10);
+
         EvExpert agent = AiServices.builder(EvExpert.class)
             .chatLanguageModel(model)
             .contentRetriever(retriever)
+            .chatMemory(chatMemory)
             .build();
 
         String response = agent.chat("What is the battery temperature limit for 2026 R1S?");
