@@ -3,7 +3,9 @@ package com.ev.battery.agent;
 import java.util.List;
 
 import dev.langchain4j.data.document.Document;
+import dev.langchain4j.data.document.DocumentSplitter;
 import dev.langchain4j.data.document.loader.FileSystemDocumentLoader;
+import dev.langchain4j.data.document.splitter.DocumentSplitters;
 import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.vertexai.VertexAiEmbeddingModel;
@@ -33,7 +35,9 @@ public class App  {
 
         InMemoryEmbeddingStore<TextSegment> store = new InMemoryEmbeddingStore<>();
 
+        DocumentSplitter splitter = DocumentSplitters.recursive(500, 50);
         EmbeddingStoreIngestor ingestor = EmbeddingStoreIngestor.builder()
+            .documentSplitter(splitter)
             .embeddingModel(embeddingModel)
             .embeddingStore(store)
             .build();
