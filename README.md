@@ -5,4 +5,4 @@ If a problem occurs (such as a battery thermal risk or a software defect) the ag
 
 1. **Monitoring**: Using **LangChain4j** (Java SDK for LangChain) and **Java**, agent will monitor/watch the EV batteries' live data (temperature and voltage)
 2. **Thinking**: The agent opens up a thought process, using RAG to read manuals from big EV car companies like Rivian/Tesla and decide if the data is dangerous
-3. **Act**: AI Agent logs into **Atlassian Jira** and creates a request/ticket for human engineers to fix
+3. **Acting**: AI Agent logs into **Atlassian Jira** and creates a request/ticket for human engineers to fix
