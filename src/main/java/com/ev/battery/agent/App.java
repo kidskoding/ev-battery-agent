@@ -27,6 +27,7 @@ public class App  {
             .project(projectId)
             .location(location)
             .modelName("gemini-2.0-flash")
+            .useGoogleSearch(true)
             .build();
 
         VertexAiEmbeddingModel embeddingModel = VertexAiEmbeddingModel.builder()
@@ -59,6 +60,7 @@ public class App  {
             .chatLanguageModel(model)
             .contentRetriever(retriever)
             .chatMemory(chatMemory)
+            .tools(new JiraTicketingTool())
             .build();
 
         String response = agent.chat("What is the battery temperature limit for 2026 R1S?");
