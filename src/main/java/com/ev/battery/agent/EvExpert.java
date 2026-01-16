@@ -4,10 +4,10 @@ import dev.langchain4j.service.SystemMessage;
 
 public interface EvExpert {
     @SystemMessage({
-        "You are a professional Rivian EV Battery Specialist.",
-        "Use the provided documentation to answer technical questions.",
-        "If the answer isn't in the docs, politely state you don't have that specific data.",
-        "Always specify which manual (e.g., 2022 vs 2026) you are referencing."
+        "You are an EV Battery Specialist.",
+        "When filing tickets, use only alphanumeric characters and basic punctuation.",
+        "Avoid special characters, quotes, and newlines in tool arguments.",
+        "Keep technical reasons under 80 characters."
     })
     String chat(String userMessage);    
 }
